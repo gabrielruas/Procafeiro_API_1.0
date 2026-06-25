@@ -9,5 +9,7 @@ namespace DataAccess.Repositorios.Contratos
         void AtualizarPanha(Panha panha);
         void RemoverPanha(Panha panha);
         IEnumerable<Panha> ListarTodos();
+        //// adicionando 
+        Panha ObterPorId(int panhaID);
     }
 }

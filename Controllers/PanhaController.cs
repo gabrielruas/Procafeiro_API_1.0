@@ -24,4 +24,22 @@ public class PanhaController : ControllerBase
 
         return Ok(panhas);
     }
+    
+    [HttpGet("{panhaID}")]
+    public IActionResult Get(int panhaID)
+    {
+        var panha = _panhaRepositorio.ObterPorId(panhaID);
+
+        if (panha == null)
+            return NotFound();
+
+        return Ok(panha);
+    }
+
+    [HttpPost]
+    public IActionResult Post([FromBody] Panha panha)
+    {
+        _panhaRepositorio.AdicionarPanha(panha);
+        return CreatedAtAction(nameof(Get), new {panhaID = panha.IdPanha}, panha);
+    }
 }

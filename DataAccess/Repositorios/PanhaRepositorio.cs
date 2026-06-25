@@ -10,12 +10,18 @@ namespace DataAccess.Repositorios
         {
             _contexto = contexto;
         }
-
+        ///Adicionando Inicio /////
+         public Panha ObterPorId(int panhaID)
+        { 
+            return _contexto.Panha.FirstOrDefault(panha => panha.IdPanha == panhaID);
+        }
+        // Fim //////
         public void AdicionarPanha(Panha panha)
         {
             _contexto.Panha.Add(panha);
             _contexto.SaveChanges();
         }
+
         public void AtualizarPanha(Panha panha)
         {
             _contexto.Panha.Update(panha);

@@ -1,0 +1,8 @@
+# Ignorar pastas de build
+bin/
+obj/
+
+# Arquivos temporários do Visual Studio (opcional)
+*.user
+*.suo
+.vs/

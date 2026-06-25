@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace procafeiro.Migrations
 {
-    public partial class Inicio : Migration
+    public partial class INICIO_DATABASE : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

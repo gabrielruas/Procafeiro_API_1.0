@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace procafeiro.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20251229232820_Inicio")]
-    partial class Inicio
+    [Migration("20260625132007_INICIO_DATABASE")]
+    partial class INICIO_DATABASE
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

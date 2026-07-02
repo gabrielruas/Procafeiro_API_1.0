@@ -13,12 +13,12 @@ namespace procafeiro.Migrations
                 name: "Panhas",
                 columns: table => new
                 {
-                    IdPanha = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    NomeColobarador = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Nmedidas = table.Column<int>(type: "int", nullable: false),
-                    Nlitros = table.Column<int>(type: "int", nullable: false),
-                    Data = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    IdPanha = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NomeColobarador = table.Column<string>(type: "TEXT", nullable: true),
+                    Nmedidas = table.Column<int>(type: "INTEGER", nullable: false),
+                    Nlitros = table.Column<int>(type: "INTEGER", nullable: false),
+                    Data = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

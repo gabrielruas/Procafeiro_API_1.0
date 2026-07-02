@@ -5,18 +5,15 @@ namespace DataAccess;
 
 public class Contexto : DbContext
 {
-    public DbSet<Panha> Panha {get; set;}
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public Contexto(DbContextOptions<Contexto> options)
+        : base(options)
     {
-        optionsBuilder.UseSqlServer(
-            "Server=localhost,1433;Database=DbPanha;User ID=Sa; Password=Senha@123;Encrypt=False;TrustServerCertificate=True;"
-        );
     }
+
+    public DbSet<Panha> Panha { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new PanhaConfiguration());
     }
 }
-    

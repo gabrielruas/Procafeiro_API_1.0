@@ -1,20 +1,24 @@
 using DataAccess;
 using DataAccess.Repositorios;
 using DataAccess.Repositorios.Contratos;
-
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-//Registra o contexto
-builder.Services.AddDbContext<Contexto>();
-//Registra uma comanda de intemediario entre DB e Interfaces 
+
+// Registra o contexto usando SQLite
+builder.Services.AddDbContext<Contexto>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Registra o repositório
 builder.Services.AddScoped<IPanhaRepositorio, PanhaRepositorio>();
+
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 ///Swagger
 builder.Services.AddSwaggerGen();
-// constro aplicacao
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

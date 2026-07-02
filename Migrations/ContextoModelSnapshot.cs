@@ -20,16 +20,12 @@ namespace procafeiro.Migrations
                 .HasAnnotation("ProductVersion", "6.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
             modelBuilder.Entity("Dominio.Panha", b =>
                 {
                     b.Property<int>("IdPanha")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
+                        .HasColumnType("INTEGER")
                         .HasColumnName("IdPanha");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPanha"), 1L, 1);
 
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2")

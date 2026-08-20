@@ -7,16 +7,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Registra o contexto usando SQLite
 builder.Services.AddDbContext<Contexto>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
-// Registra o repositório
+// Registra os repositórios
 builder.Services.AddScoped<IPanhaRepositorio, PanhaRepositorio>();
+builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Learn more about configuring Swagger/OpenAPI at
+// https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-///Swagger
+
+// Swagger
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

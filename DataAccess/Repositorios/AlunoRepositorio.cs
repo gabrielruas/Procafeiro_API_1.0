@@ -12,11 +12,14 @@ public class AlunoRepositorio : IAlunoRepositorio
         _contexto = contexto;
     }
 
+    // Yan - Esta função lista todos os alunos cadastrados no banco de dados.
     public IEnumerable<Aluno> ListarTodos() => _contexto.Alunos.ToList();
 
+    // Yan - Esta função busca um aluno pelo seu ID.
     public Aluno ObterPorId(int idAluno) =>
         _contexto.Alunos.FirstOrDefault(aluno => aluno.IdAluno == idAluno);
 
+    // Yan - Esta função adiciona um novo aluno ao banco de dados.
     public void AdicionarAluno(Aluno aluno)
     {
         _contexto.Alunos.Add(aluno);
